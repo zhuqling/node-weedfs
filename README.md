@@ -48,16 +48,26 @@ client.write("./file.png", {replication: 000}, function(err, fileInfo) {
 });
 ```
 
+# submit(file(s), cb)
+
+Use the <code>submit()</code> function to store files.  The callback recieves the parsed JSON response array.
+
+```javascript
+client.submit("./file.png", function(err, fileInfos) {
+	if (err) {
+		throw err;
+	}
+
+	console.log(fileinfos);
+});
+```
+
 You can also write multiple files:
 ```javascript
-client.write(["./fileA.jpg", "./fileB.jpg"], function(err, fileInfo) {
-	// This callback will be called for both fileA and fileB.
-	// The fid's will be the same, to access each variaton just
-	// add _ARRAYINDEX to the end of the fid. In this case fileB
-	// would be: fid + "_1"
-	
-	var fidA = fileInfo;
-	var fidB = fileInfo + "_1";
+client.write(["./fileA.jpg", "./fileB.jpg"], function(err, fileInfos) {
+	if (err) {
+		throw err;
+	}
 	
 	console.log(fileInfo);
 }
