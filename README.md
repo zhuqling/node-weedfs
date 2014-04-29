@@ -64,7 +64,7 @@ client.submit("./file.png", function(err, fileInfos) {
 
 You can also write multiple files:
 ```javascript
-client.write(["./fileA.jpg", "./fileB.jpg"], function(err, fileInfos) {
+client.submit(["./fileA.jpg", "./fileB.jpg"], function(err, fileInfos) {
 	if (err) {
 		throw err;
 	}
